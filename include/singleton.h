@@ -14,6 +14,10 @@
 #define SINGLETON_MOCK_ENABLED 0
 #endif
 
+#if !defined(__PRETTY_FUNCTION__) && defined(_MSC_VER)
+#define __PRETTY_FUNCTION__ __FUNCSIG__
+#endif
+
 namespace singleton {
 
 namespace details {
