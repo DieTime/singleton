@@ -46,7 +46,7 @@ void foo()
      * before the first use.
      */
 
-    ThreadSafeWithCtor::initialize("tag");
+    ThreadSafeWithCtor::initialize("argument");
     ThreadSafeWithCtor::instance()->process();
 }
 ```
@@ -82,7 +82,7 @@ void foo()
      * before the first use.
      */
 
-    NonThreadSafeWithCtor::initialize("tag");
+    NonThreadSafeWithCtor::initialize("argument");
     NonThreadSafeWithCtor::instance()->process();
 }
 ```
