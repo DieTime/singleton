@@ -29,14 +29,16 @@ void foo()
 {
     ThreadSafe::instance()->process();
 }
+```
 
+```cpp
 struct ThreadSafeWithCtor : singleton::threadsafe<ThreadSafeWithCtor>
 {
     ThreadSafeWithCtor(std::string) {...}
     void process() {...}
 };
 
-void bar()
+void foo()
 {
     /*
      * If the class does not have a default constructor,
@@ -63,14 +65,16 @@ void foo()
 {
     NonThreadSafe::instance()->process();
 }
+```
 
+```cpp
 struct NonThreadSafeWithCtor : singleton::nonthreadsafe<NonThreadSafeWithCtor>
 {
     NonThreadSafeWithCtor(std::string) {...}
     void process() {...}
 };
 
-void bar()
+void foo()
 {
     /*
      * If the class does not have a default constructor,
