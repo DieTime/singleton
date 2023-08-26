@@ -1,0 +1,29 @@
+name: Linux
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test-linux:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Update repositories
+        run: sudo apt-get update -qq
+
+      - name: Install meson build system
+        run: |
+          sudo apt-get install -y python3 python3-pip ninja-build
+          python3 -m pip install meson
+
+      - name: Configure build directory
+        run: meson setup builddir
+
+      - name: Compile project
+        run: meson compile -C builddir
+
+      - name: Run tests
+        run: meson test -C builddir

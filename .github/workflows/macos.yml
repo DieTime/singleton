@@ -1,0 +1,27 @@
+name: MacOS
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test-macos:
+    name: Build & Test
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install meson build system
+        run: python3 -m pip install meson
+
+      - name: Install ninja build system
+        run: brew install ninja
+
+      - name: Configure build directory
+        run: meson setup builddir
+
+      - name: Compile project
+        run: meson compile -C builddir
+
+      - name: Run tests
+        run: meson test -C builddir
