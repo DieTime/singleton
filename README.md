@@ -13,6 +13,9 @@
 
 Library for creating easily mockable C++ singleton classes.
 
+* Standard `C++17` is required.
+* Supports [single-header](include/singleton.h) version.
+
 # Usage
 
 For multithreaded programs, it is recommended to use thread-safe version of the singleton.
