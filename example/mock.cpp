@@ -13,7 +13,7 @@ struct Interface
     virtual void process() = 0;
 };
 
-struct Singleton : singleton::threadsafe<Singleton, Interface>
+struct Singleton : public singleton::threadsafe<Singleton, Interface>
 {
     Singleton(std::string message)
         : message(std::move(message))

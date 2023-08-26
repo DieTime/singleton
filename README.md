@@ -20,7 +20,7 @@ For multithreaded programs, it is recommended to use thread-safe version of the 
 ```cpp
 #include <singleton>
 
-struct ThreadSafe : singleton::threadsafe<ThreadSafe>
+struct ThreadSafe : public singleton::threadsafe<ThreadSafe>
 {
     void process() {...}
 };
@@ -32,7 +32,7 @@ void foo()
 ```
 
 ```cpp
-struct ThreadSafeWithCtor : singleton::threadsafe<ThreadSafeWithCtor>
+struct ThreadSafeWithCtor : public singleton::threadsafe<ThreadSafeWithCtor>
 {
     ThreadSafeWithCtor(std::string) {...}
     void process() {...}
@@ -56,7 +56,7 @@ There is also a non thread-safe version of singleton without the overhead of thr
 ```cpp
 #include <singleton>
 
-struct NonThreadSafe : singleton::nonthreadsafe<NonThreadSafe>
+struct NonThreadSafe : public singleton::nonthreadsafe<NonThreadSafe>
 {
     void process() {...}
 };
@@ -68,7 +68,7 @@ void foo()
 ```
 
 ```cpp
-struct NonThreadSafeWithCtor : singleton::nonthreadsafe<NonThreadSafeWithCtor>
+struct NonThreadSafeWithCtor : public singleton::nonthreadsafe<NonThreadSafeWithCtor>
 {
     NonThreadSafeWithCtor(std::string) {...}
     void process() {...}
@@ -100,7 +100,7 @@ struct Interface {
     virtual void process() = 0;
 }
 
-struct Singleton : singleton::threadsafe<Singleton, Interface>
+struct Singleton : public singleton::threadsafe<Singleton, Interface>
 {
     void process() {...}
 };

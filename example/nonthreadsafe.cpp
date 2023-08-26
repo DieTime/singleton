@@ -6,7 +6,7 @@
 #include <iostream>
 #include <singleton>
 
-struct NonThreadSafe : singleton::nonthreadsafe<NonThreadSafe>
+struct NonThreadSafe : public singleton::nonthreadsafe<NonThreadSafe>
 {
     void process()
     {
