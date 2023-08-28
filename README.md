@@ -92,7 +92,9 @@ void foo()
 
 For testing purposes, you can inherit a singleton from the interface and conveniently mock your singleton.
 
-> For mocking you need to add the definition   `SINGLETON_MOCK_ENABLED=1` in your build system or before including the library.
+> ❗For mocking you need to add the definition `SINGLETON_MOCK_ENABLED=1` in your build system or before including the library.
+
+> 👍 Without `SINGLETON_MOCK_ENABLED=1` definition, you won't get an overhead with interface inheritance and a virtual function table.
 
 ```cpp
 #define SINGLETON_MOCK_ENABLED 1
